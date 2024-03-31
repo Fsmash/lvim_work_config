@@ -1,11 +1,12 @@
 -- WHICHKEY
+
+-- Clean up of whichkey menu
 lvim.builtin.which_key.mappings["D"] = lvim.builtin.which_key.mappings["d"]
 lvim.builtin.which_key.mappings["d"] = {}
 
 lvim.builtin.which_key.mappings["P"] = lvim.builtin.which_key.mappings["p"]
 lvim.builtin.which_key.mappings["p"] = {}
 
--- Muddies up the whichkey menu. Replaced in keybinds/init.lua
 lvim.builtin.which_key.mappings["w"] = {}
 lvim.builtin.which_key.mappings["q"] = {}
 lvim.builtin.which_key.mappings["c"] = {}
@@ -16,8 +17,10 @@ lvim.builtin.which_key.mappings["f"] = {}
 lvim.builtin.which_key.mappings["/"] = {}
 lvim.builtin.which_key.vmappings["/"] = {}
 
--- Grep string under cursor
+-- Undotree
+lvim.builtin.which_key.mappings["U"] = { "<cmd>UndotreeToggle<cr>", "Undotree" }
 
+-- Telescope
 lvim.builtin.which_key.mappings["s"] = {
   name = "Search",
   b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -28,12 +31,10 @@ lvim.builtin.which_key.mappings["s"] = {
   k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
   l = { "<cmd>Telescope resume<cr>", "Resume last search" },
   a = { "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Live Grep Args" },
+  c = { "<cmd>Telescope commands<cr>", "Commands" }
 }
 
--- Undotree
-lvim.builtin.which_key.mappings["U"] = { "<cmd>UndotreeToggle<cr>", "Undotree" }
-
--- Recent files
+-- Telescope Recent files
 lvim.builtin.which_key.mappings["sr"] = {
   function()
     require('telescope.builtin').oldfiles({
@@ -45,7 +46,7 @@ lvim.builtin.which_key.mappings["sr"] = {
   end, "Recent Files"
 }
 
--- Find files
+-- Telescope Find all files
 lvim.builtin.which_key.mappings["sf"] = {
   function()
     require('telescope.builtin').find_files({
@@ -54,10 +55,10 @@ lvim.builtin.which_key.mappings["sf"] = {
       wrap_results = true,
       previewer = false,
     })
-  end, "Find File"
+  end, "Find All File"
 }
 
--- Find string
+-- Telescope Grep string
 lvim.builtin.which_key.mappings["st"] = {
   function()
     require('telescope.builtin').live_grep({
@@ -71,7 +72,7 @@ lvim.builtin.which_key.mappings["st"] = {
   end, "Grep String"
 }
 
--- Grep string
+-- Telescope Grep string under cursor
 lvim.builtin.which_key.mappings["sg"] = {
   function()
     require('telescope.builtin').grep_string({
@@ -85,7 +86,7 @@ lvim.builtin.which_key.mappings["sg"] = {
   end, "Grep String Under Cursor"
 }
 
--- Find files with preview
+-- Telescope Find files with preview
 lvim.builtin.which_key.mappings["sp"] = {
   function()
     require('telescope.builtin').find_files({
@@ -94,11 +95,8 @@ lvim.builtin.which_key.mappings["sp"] = {
       wrap_results = true,
       previewer = true,
     })
-  end, "Preview File"
+  end, "Find File with Preview"
 }
-
--- Commands
-lvim.builtin.which_key.mappings["sc"] = { "<cmd>Telescope commands<cr>", "Commands" }
 
 -- Move current buffer to absolute ordinal position
 lvim.builtin.which_key.mappings["bm"] = {
@@ -114,13 +112,9 @@ lvim.builtin.which_key.mappings["bm"] = {
   end, "Move Buffer to Ordinal Position"
 }
 
-
--- SESSION MANAGEMENT
-
--- Have to tell lvim to explicitly load extensions.
--- See ~/.config/lvim/lua/telescope/_extensions/
+-- SESSION MANAGEMENT: See ~/.config/lvim/lua/telescope/_extensions/
 lvim.builtin.telescope.on_config_done = function(telescope)
-  telescope.load_extension("session_picker")
+  telescope.load_extension("session_picker") -- Have to tell lvim to explicitly load extensions.
 end
 
 lvim.builtin.which_key.mappings["S"] = {
