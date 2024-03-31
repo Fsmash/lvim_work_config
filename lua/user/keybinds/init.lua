@@ -74,30 +74,23 @@ harpoon:setup({
 })
 lvim.keys.normal_mode["<leader>-"] = function() harpoon.ui:toggle_quick_menu(harpoon:list()) end
 lvim.keys.normal_mode["<leader>a"] = function() harpoon:list():append() end
+for i = 1, 9 do
+  lvim.keys.normal_mode["<leader>j" .. i] = function() harpoon:list():select(i) end
+end
 
 -- Bufferline navigation
 lvim.keys.normal_mode["<leader>0"] = "<cmd>silent! lua require('bufferline').go_to(-1, true)<cr>"
-
 for i = 1, 9 do
   lvim.keys.normal_mode["<leader>" .. i] = "<cmd>silent! lua require('bufferline').go_to(" .. i .. ", true)<cr>"
 end
 
--- Here for reference
--- vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
--- vim.keymap.set("n", "<C-t>", function() harpoon:list():select(2) end)
--- vim.keymap.set("n", "<C-n>", function() harpoon:list():select(3) end)
--- vim.keymap.set("n", "<C-s>", function() harpoon:list():select(4) end)
--- vim.keymap.set("n", "<C-S-P>", function() harpoon:list():prev() end)
--- vim.keymap.set("n", "<C-S-N>", function() harpoon:list():next() end)
-
 -- Telescope
 lvim.keys.normal_mode["<leader>H"] = "<cmd>Telescope search_history<cr>"
--- Restrict find_files to just the current buffer directory if no git repo
 lvim.keys.normal_mode["<leader>f"] = function()
   local utils = require("telescope.utils")
   require("lvim.core.telescope.custom-finders").find_project_files {
     previewer = false,
-    cwd = utils.buffer_dir(),
+    cwd = utils.buffer_dir(), -- Restrict find_files to just the current buffer directory if no git repo
     path_display = { "absolute" },
     wrap_results = true,
   }
@@ -113,8 +106,7 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('v', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()") -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 
 -- Lua testing
 -- enew|put=execute('lua <args>')
