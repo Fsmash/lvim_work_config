@@ -6,8 +6,8 @@ lvim.builtin.alpha.mode = "startify"
 lvim.builtin.alpha.startify.section.header.val = ""
 lvim.builtin.telescope.theme = "ivy"
 lvim.builtin.nvimtree.setup.filters.dotfiles = true
-lvim.builtin.bufferline.options.numbers = "ordinal"
 lvim.builtin.nvimtree.setup.filters.dotfiles = false
+lvim.builtin.bufferline.options.numbers = "ordinal"
 
 vim.opt.numberwidth = 1
 vim.opt.timeoutlen = 400
