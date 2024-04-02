@@ -1,3 +1,8 @@
+-- Formatting
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup { { name = "pint" }, }
+
+-- Debugging
 local dap = require('dap')
 
 dap.adapters.php = {
