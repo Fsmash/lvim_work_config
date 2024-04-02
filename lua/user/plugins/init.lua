@@ -32,4 +32,5 @@ lvim.plugins = {
       end, 100)
     end,
   },
+  { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
 }

@@ -19,10 +19,11 @@ vim.opt.linebreak = true
 
 -- USER CONFIGS
 require("user.plugins")
-require("user.laravel")
 require("user.keybinds")
 require("user.whichkey")
 require("user.autocommands")
+require("user.laravel")
+require("user.lspconfig")
 
 -- Fix for deprecated nvim-tree config
 require('ts_context_commentstring').setup {}
