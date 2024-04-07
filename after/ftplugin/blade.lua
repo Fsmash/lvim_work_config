@@ -14,13 +14,7 @@ parser_config.blade = {
 
 -- Blade Formatter
 local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup({
-  {
-    command = "blade-formatter",
-    args = { "--write", "$FILENAME" },
-    filetypes = { "blade" }
-  }
-})
+formatters.setup { { name = "blade_formatter" }, }
 
 -- Comment toggle for Blade TODO: not working
 -- local ft = require("Comment.ft")
