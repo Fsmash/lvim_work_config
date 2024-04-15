@@ -96,17 +96,17 @@ lvim.keys.normal_mode["<leader>f"] = function()
   }
 end
 
--- TERMINAL KEYBINDS
-function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set('t', 'JK', [[<c-\><c-n>]], opts)
-  vim.keymap.set('t', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
-  vim.keymap.set('i', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
-  vim.keymap.set('n', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
-  vim.keymap.set('v', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
-end
+-- TERMINAL KEYBINDS: Broken for multiple terminals
+-- function _G.set_terminal_keymaps()
+--   local opts = { buffer = 0 }
+--   vim.keymap.set('t', 'JK', [[<c-\><c-n>]], opts)
+--   vim.keymap.set('t', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
+--   vim.keymap.set('i', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
+--   vim.keymap.set('n', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
+--   vim.keymap.set('v', '<c-l>', [[<cmd>TermExec cmd=';clear'<cr>]], opts)
+-- end
 
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()") -- if you only want these mappings for toggle term use term://*toggleterm#* instead
+-- vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()") -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 
 -- Lua testing
 -- enew|put=execute('lua <args>')
