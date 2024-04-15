@@ -23,7 +23,6 @@ require("lspconfig").blade.setup({
   on_init = require("lvim.lsp").common_on_init,
   on_exit = require("lvim.lsp").common_on_exit,
   capabilities = lsp_zero.get_capabilities(),
-  -- capabilities = require("lvim.lsp").common_capabilities(),
 })
 
 lsp_zero.default_setup("blade")
