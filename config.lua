@@ -11,7 +11,7 @@ lvim.builtin.bufferline.options.numbers = "ordinal"
 
 vim.opt.numberwidth = 1
 vim.opt.timeoutlen = 400
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 vim.opt.scrolloff = 0
 vim.opt.showmode = true
 vim.opt.wrap = true
