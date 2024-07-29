@@ -73,7 +73,7 @@ harpoon:setup({
   settings = { save_on_toggle = true, sync_on_ui_close = true, },
 })
 lvim.keys.normal_mode["<leader>-"] = function() harpoon.ui:toggle_quick_menu(harpoon:list()) end
-lvim.keys.normal_mode["<leader>a"] = function() harpoon:list():append() end
+lvim.keys.normal_mode["<leader>a"] = function() harpoon:list():add() end
 for i = 1, 9 do
   lvim.keys.normal_mode["<leader>j" .. i] = function() harpoon:list():select(i) end
 end
