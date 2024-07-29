@@ -25,6 +25,10 @@ require("user.autocommands")
 require("user.laravel")
 require("user.lspconfig")
 
+-- Formatting, decided to go with pint(PSR-12) for PHP.
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup { { name = "pint" }, }
+
 -- Fix for deprecated nvim-tree config
 require('ts_context_commentstring').setup {}
 vim.g.skip_ts_context_commentstring_module = true
